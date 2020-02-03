@@ -1,0 +1,20 @@
+
+<script src="cells/cell.js"></script>
+<script src="cells/empty.js"></script>
+<script src="cells/hotel.js"></script>
+<script src="cells/jail.js"></script>
+<script src="cells/treasure.js"></script>
+<script src="cells/factory.js"></script>
+<script src="bankaccount.js"></script>
+<script src="player.js"></script>
+<script src="board.js"></script>
+<script src="gamesimulator.js"></script>
+<script>
+
+let simulator = new GameSimulator( 3, "E,E,J,H,E,T,J,T,E,E,H,J,T,H,E,E,J,H,E,T,J,T,E,E,H,J,T,H,J,E,E,J,H,E,T,J,T,E,E,H,J,T,E,H,E" );
+console.log(simulator);
+let winner = simulator.simulate( "4,4,4,6,7,8,5,11,10,12,2,3,5,6,7,8,5,11,10,12,2,3,5,6,7,8,5,11,10,12" );
+console.log(simulator);
+console.log("winner", winner)
+
+</script>
