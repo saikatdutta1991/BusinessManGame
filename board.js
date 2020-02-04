@@ -2,6 +2,7 @@ class Board {
 
     constructor( head ) {
         this.head = head;
+        this.playersCell = new Map();
     }
 
     getHead() {
@@ -24,19 +25,30 @@ class Board {
     }
 
 
-    moveSteps( currentCell, noSteps ) {
-        
-        if( !currentCell && noSteps > 0 ) {
-            currentCell = this.getHead();
-            --noSteps;
-        }
+    getCell( player ) {
+        return this.playersCell.get( player ); 
+    }
+
+
+    setCell( player, cell ) {
+        this.playersCell.set( player, cell );
+        return true;
+    }
+
+
+    movePlayer( player, noSteps ) {
+
+        let current = this.getCell( player ) ? this.getCell( player ) : this.getHead();
+
+        if( noSteps > 0 ) --noSteps;
 
         for( let i = noSteps; i >= 1; i-- ) {
-            currentCell = currentCell.getNext();
+            current = current.getNext();
         }
 
-        return currentCell;
+        this.setCell( player, current );
 
+        return current;
     }
 
     
